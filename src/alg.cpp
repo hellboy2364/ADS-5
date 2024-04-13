@@ -2,6 +2,13 @@
 #include <string>
 #include <map>
 #include "tstack.h"
+int pr(char e) {
+    if (e == '+'  || e == '-')
+        return 1;
+    if (e == '*'  || e == '/')
+        return 2;
+    return 0;
+}
 
 std::string infx2pstfx(std::string inf) {
   // добавьте код
@@ -50,7 +57,6 @@ std::string infx2pstfx(std::string inf) {
         post.pop();
     }
     return dig;
-    return std::string("");
 }
 
 int eval(std::string pref) {
@@ -87,5 +93,4 @@ int eval(std::string pref) {
         }
     }
     return num.get();
-    return 0;
 }
