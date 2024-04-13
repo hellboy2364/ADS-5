@@ -23,25 +23,21 @@ std::string infx2pstfx(std::string inf) {
                 continue;
             }
             dig = dig + ' ' + i;
-        }
-        else if (i == '+' || i == '-' || i == '*' || i == '/' ||  i == '(' || i == ')') {
+        } else if (i == '+' || i == '-' || i == '*' ||
+            i == '/' ||  i == '(' || i == ')') {
             if (i == '(') {
                 post.push(i);
-            }
-            else if (post.empty()) {
+            } else if (post.empty()) {
                 post.push(i);
-            }
-            else if (pr(i) > pr(post.get())) {
+            } else if (pr(i) > pr(post.get())) {
                 post.push(i);
-            }
-            else if (i == ')') {
+            } else if (i == ')') {
                 while (post.get() != '(') {
                     dig = dig + ' ' + post.get();
                     post.pop();
                 }
                 post.pop();
-            }
-            else {
+            } else {
                 int w = pr(i);
                 int z = pr(post.get());
                 while (!post.empty() && w <= z) {
@@ -65,8 +61,7 @@ int eval(std::string pref) {
     for (char k : pref) {
         if (k >= '0' && k <= '9') {
             num.push(k - '0');
-        }
-        else if (pr(k)) {
+        } else if (pr(k)) {
             int z = num.get();
             num.pop();
             int w = num.get();
@@ -87,8 +82,7 @@ int eval(std::string pref) {
             default:
                 continue;
             }
-        }
-        else {
+        } else {
             continue;
         }
     }
