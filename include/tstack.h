@@ -3,7 +3,7 @@
 #define INCLUDE_TSTACK_H_
 
 template<typename T, int size>
-class TStack {
+class tstack {
   // добавьте код стека
 private:
     T* array;
